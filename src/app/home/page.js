@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import RootLayout from "../layout";
+import HomeSection from "@/sections/HomeSection/HomeSection";
 
 const HomePage = () => {
   return (
-    <div className='text-orange-900'>HomePage</div>
-  )
-}
+    <>
+      <RootLayout>
+        <HomeSection />
+      </RootLayout>
+    </>
+  );
+};
 
-export default HomePage
+export default HomePage;

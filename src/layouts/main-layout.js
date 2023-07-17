@@ -7,6 +7,7 @@ import ChooseLife from "../assets/svgs/logo-white.svg";
 import Home from "../assets/svgs/Home.svg";
 import Contact from "../assets/svgs/Contact.svg";
 import Faqs from "../assets/svgs/FAQ'S.svg";
+import { useRouter } from "next/navigation";
 
 const { Header, Sider, Content } = Layout;
 
@@ -16,11 +17,15 @@ const MainLayout = ({ children }) => {
     token: { colorBgContainer },
   } = theme.useToken();
 
+  const router = useRouter();
   return (
     <Layout className="h-screen">
       <Sider
-        className="rounded-r-lg"
-        style={{ background: "#4261EF" }}
+        style={{
+          background: "#4261EF",
+          borderTopRightRadius: "20px",
+          borderBottomRightRadius: "20px",
+        }}
         trigger={null}
         collapsible
         collapsed={collapsed}
@@ -30,7 +35,15 @@ const MainLayout = ({ children }) => {
         </div>
         <div>
           <Menu
-            style={{ background: "#4261EF" }}
+            style={{
+              background: "#4261EF",
+              fontSize: "18px",
+              fontWeight: "700",
+              color: "white",
+            }}
+            onChange={(a) => {
+              console.log(a);
+            }}
             mode="inline"
             defaultSelectedKeys={["1"]}
             items={[
@@ -38,6 +51,9 @@ const MainLayout = ({ children }) => {
                 key: "1",
                 icon: <Image src={Home} />,
                 label: "Home",
+                onClick: () => {
+                  router.push("/home");
+                },
               },
               {
                 key: "2",
@@ -47,7 +63,6 @@ const MainLayout = ({ children }) => {
               {
                 key: "3",
                 icon: <Image src={Contact} />,
-                style: { color: "white" },
                 label: "Contact",
               },
             ]}
@@ -55,8 +70,11 @@ const MainLayout = ({ children }) => {
         </div>
 
         <div style={{ position: "absolute", bottom: 0, left: 50 }}>
-          <Button type="text" className="text-white">
-            logout
+          <Button
+            style={{ fontSize: "16px", fontWeight: "700" }}
+            type="primary"
+          >
+            Logout
           </Button>
         </div>
       </Sider>
