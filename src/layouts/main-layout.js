@@ -19,7 +19,7 @@ const MainLayout = ({ children }) => {
 
   const router = useRouter();
   return (
-    <Layout className="h-screen">
+    <Layout className="height-100vh">
       <Sider
         style={{
           background: "#4261EF",
@@ -31,7 +31,7 @@ const MainLayout = ({ children }) => {
         collapsed={collapsed}
       >
         <div className="flex justify-center">
-          <Image src={ChooseLife} style={{ margin: 25, width: 100 }} />
+          <Image src={ChooseLife} style={{ margin: 25, width: 90 }} />
         </div>
         <div>
           <Menu
