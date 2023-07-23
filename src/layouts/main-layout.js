@@ -40,8 +40,8 @@ const MainLayout = ({ children }) => {
           <Menu
             style={{
               background: "#4261EF",
-              fontSize: "18px",
-              fontWeight: "700",
+              fontSize: "16px",
+              fontWeight: "500",
               color: "white",
             }}
             onChange={(a) => {
