@@ -1,0 +1,18 @@
+
+
+.paper-card{
+  width: 70%;
+  margin: auto;
+}
+
+@media(max-width:800px)
+{
+  .paper-card{
+    width: 80%;
+
+  }
+}
+
+.button{
+  margin-top: 50px;
+}

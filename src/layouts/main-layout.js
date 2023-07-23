@@ -19,16 +19,19 @@ const MainLayout = ({ children }) => {
 
   const router = useRouter();
   return (
-    <Layout className="height-100vh">
+    <Layout>
       <Sider
         style={{
           background: "#4261EF",
           borderTopRightRadius: "20px",
           borderBottomRightRadius: "20px",
+            minHeight:'100vh'
+
         }}
         trigger={null}
         collapsible
         collapsed={collapsed}
+        collapsedWidth={0}
       >
         <div className="flex justify-center">
           <Image src={ChooseLife} style={{ margin: 25, width: 90 }} />
@@ -69,14 +72,14 @@ const MainLayout = ({ children }) => {
           />
         </div>
 
-        <div style={{ position: "absolute", bottom: 0, left: 50 }}>
-          <Button
-            style={{ fontSize: "16px", fontWeight: "700" }}
-            type="primary"
-          >
-            Logout
-          </Button>
-        </div>
+        {/*<div style={{ position: "absolute", bottom: 0, left: 50 }}>*/}
+        {/*  <Button*/}
+        {/*    style={{ fontSize: "16px", fontWeight: "700" }}*/}
+        {/*    type="primary"*/}
+        {/*  >*/}
+        {/*    Logout*/}
+        {/*  </Button>*/}
+        {/*</div>*/}
       </Sider>
       <Layout>
         <Header style={{ padding: 0, background: colorBgContainer }}>
@@ -94,7 +97,7 @@ const MainLayout = ({ children }) => {
         <Content
           style={{
             minHeight: 280,
-            background: colorBgContainer,
+            background: 'white',
           }}
         >
           {children}

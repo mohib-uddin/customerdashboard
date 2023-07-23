@@ -1,11 +1,12 @@
-import '../styles/PaperWork.scss';
+"use client"
+import '../../styles/PaperWork.scss';
 import { Button, Card } from "antd";
 import React from "react";
-import Popup from "@/components/modal";
+import PaperworkModal from "@/components/modal/paperwork-modal";
 const Paperwork=()=>{
 
     return(
-        <Card className={'paper-card'}>
+        <div className={'paper-card'} style={{height:'100%'}}>
             <h4>Step 1:Review And Sign Telemedicine Paperwork</h4>
             <p>We work hard to be as thorough and transparent as possible throughout your entire journey with us. This includes making sure you fully understand the process up front.
             </p>
@@ -19,10 +20,19 @@ const Paperwork=()=>{
             </p>
             <p>Action Item: You will first complete the treatment informed consent document at the link below and then automatically be redirected to schedule your initial consultation call.
             </p>
-            <Popup buttonTitle={"Review & Sign"}/>
-        </Card>
+                <div className={'margin-top-2'}>
+                        <a className={'primary-color'}>Informed Consent</a>
+                </div>
+                <div className={'margin-top-1'}>
+                        <a className={'primary-color'}>Remote Treatment Agreement</a>
+                </div>
+
+
+            <PaperworkModal/>
+        </div>
     )
 
 }
 
 export default Paperwork;
+

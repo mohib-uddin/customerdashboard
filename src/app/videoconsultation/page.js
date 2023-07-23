@@ -1,7 +1,7 @@
-import '../styles/VideoConsultation.scss';
+// import '../styles/VideoConsultation.scss';
 import { Button, Card } from "antd";
 import React from "react";
-import VCModal from "@/components/video-consultation-modal";
+// import VCModal from "@/components/video-consultation-modal";
 const Videoconsultation=()=>{
 
     return(

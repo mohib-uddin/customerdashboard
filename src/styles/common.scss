@@ -385,3 +385,17 @@ a {
   background: linear-gradient(90deg, #0000 calc(100% - var(--w)), #F0F0F2 0);
   background-size: calc((100% - var(--n)*var(--w))/(var(--n) + 1) + var(--w)) 100%;
 }
+
+
+.button{
+width: 50%;
+  height:40px ;
+  border-radius:20px ;
+  margin: auto;
+}
+
+@media(max-width: 768px){
+  .button{
+    width: 100%;
+  }
+}

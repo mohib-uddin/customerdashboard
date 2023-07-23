@@ -6,23 +6,40 @@ import "../styles/common.scss"
 import "../styles/global-styling.scss"
 import "../styles/utilities.scss"
 import "../styles/screen-media-query.scss"
-const inter = Inter({ subsets: ["latin"] });
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-export const metadata = {
-  title: "Choose Ketamine",
-  description: "Choose Ketamine",
-};
+import { ToastContainer } from "react-toastify";
+const inter = Inter({ subsets: ["latin"] });
+import "react-toastify/dist/ReactToastify.css";
+
+const queryClient = new QueryClient();
 
 export default function RootLayout({ children }) {
   
   return (
     <html lang="en">
       <body className="margin-none">
-        <ConfigProvider theme={{token:{colorPrimary: "#4261EF"}}}>
-          <MainLayout>
-            {children}
-          </MainLayout>
-        </ConfigProvider>
+      <QueryClientProvider client={queryClient}>
+          <ToastContainer
+              position="bottom-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+          />
+          <ConfigProvider theme={{token:{colorPrimary: "#4261EF"}}}>
+              <MainLayout>
+                  {children}
+              </MainLayout>
+          </ConfigProvider>
+          <ReactQueryDevtools initialIsOpen={false} position={"bottom-left"} />
+      </QueryClientProvider>
+
       </body>
     </html>
   );
