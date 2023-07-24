@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
                   {children}
               </MainLayout>
           </ConfigProvider>
-          <ReactQueryDevtools initialIsOpen={false} position={"bottom-left"} />
+          {/*<ReactQueryDevtools initialIsOpen={false} position={"bottom-left"} />*/}
       </QueryClientProvider>
 
       </body>

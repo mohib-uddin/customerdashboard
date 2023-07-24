@@ -1,8 +1,8 @@
-// import '../styles/VideoConsultation.scss';
+"use client"
 import { Button, Card } from "antd";
 import React from "react";
-// import VCModal from "@/components/video-consultation-modal";
-const Videoconsultation=()=>{
+import '../../styles/VideoConsultation.scss'
+const VideoConsultation=()=>{
 
     return(
         <Card className={'paper-card'}>
@@ -24,10 +24,9 @@ const Videoconsultation=()=>{
             </ul>
                 <p>Note: We'll reserve this time on the Clinician’s calendar for you. If you must reschedule, please do so at least 72 hours in advance to avoid a $150 fee… and a sad Clinician :(
                 </p>
-            <VCModal buttonTitle={"Schedule Consultation"}/>
         </Card>
     )
 
 }
 
-export default Videoconsultation;
+export default VideoConsultation;

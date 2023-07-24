@@ -35,7 +35,7 @@ const HomeSection = () => {
             todoItem={'VideoConsultation'}
             heading={'Schedule Your First Video Consultation'}
             route={'/videoconsultation'}
-            description={' Before we proceed forward we just need you to review and sign some paperwork'}
+            description={'Now it’s time to schedule your video consult with your Choose Ketamine Clinician'}
         />
         <TodoCards
             todoItem={'FirstExperience'}
