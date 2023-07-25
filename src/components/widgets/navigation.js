@@ -47,9 +47,6 @@ const Navigation=({collapsed})=>{
 
                 }}
                 trigger={null}
-                collapsible
-                collapsed={collapsed}
-                collapsedWidth={0}
             >
                 <div className="flex justify-center">
                     <Image src={ChooseLife} style={{ margin: 25, width: 90 }} />

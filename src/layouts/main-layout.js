@@ -10,7 +10,6 @@ import { useSearchParams } from 'next/navigation'
 const {useBreakpoint}=Grid;
 const { Header, Sider, Content } = Layout;
 const MainLayout = ({ children }) => {
-  const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -26,20 +25,8 @@ const MainLayout = ({ children }) => {
   return (
       <>
           {accessToken?<Layout>
-              <Navigation collapsed={collapsed}/>
+              <Navigation/>
               <Layout>
-                  <Header style={{ padding: 0, background: colorBgContainer }}>
-                      {!screens.xs&&<Button
-                          type="text"
-                          icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-                          onClick={() => setCollapsed(!collapsed)}
-                          style={{
-                              fontSize: "16px",
-                              width: 64,
-                              height: 64,
-                          }}
-                      />}
-                  </Header>
                   <Content
                       style={{
                           minHeight: 280,
