@@ -4,15 +4,15 @@ import axiosInstance from "@/utils/config/axios-instance";
 
 const TodoService = () => {
     const useFetchTodo = () => {
-        function fetchUser(){
+        function fetchTodo(){
             return axiosInstance
-                .get(`/users/todo`)
+                .get(`/users/todos`)
                 .then((res) => res.data);
         }
 
         return useQuery({
-            queryFn: fetchUser,
-            queryKey: [`todo`],
+            queryFn: fetchTodo,
+            queryKey: [`todos`],
             retry: 0,
         });
     };

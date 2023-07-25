@@ -7,10 +7,9 @@ import TodoCards from "@/components/stateful/todo-cards";
 
 
 const HomeSection = () => {
+
+
   const navigation=useRouter();
-  const {useFetchTodo}=TodoService();
-  const {data,isLoading,isSuccess}=useFetchTodo();
-  console.log(data);
   return (
     <section style={{width:'100%',background:'whitesmoke'}}>
       <div style={{height:'100%',width:'80%',margin:'auto'}}>
@@ -25,44 +24,44 @@ const HomeSection = () => {
         </p>
 
         <TodoCards
-            todoItem={'PaperWork'}
+            todoItem={'telemedicine_paperwork'}
             heading={'Review And Sign Telemedicine Paperwork'}
             route={'/paperwork'}
             description={' Before we proceed forward we just need you to review and sign some paperwork'}
         />
 
         <TodoCards
-            todoItem={'VideoConsultation'}
+            todoItem={'video_consultation'}
             heading={'Schedule Your First Video Consultation'}
             route={'/videoconsultation'}
             description={'Now it’s time to schedule your video consult with your Choose Ketamine Clinician'}
         />
         <TodoCards
-            todoItem={'FirstExperience'}
+            todoItem={'first_experience'}
             heading={'Schedule Your First Experience'}
             route={'/videoconsultation'}
             description={' Before we proceed forward we just need you to review and sign some paperwork'}
         />
         <TodoCards
-            todoItem={'SecondExperience'}
+            todoItem={'second_experience'}
             heading={'Schedule Your Second Experience - Recommended 7+ Days After Your First'}
             route={'/videoconsultation'}
             description={' Before we proceed forward we just need you to review and sign some paperwork'}
         />
         <TodoCards
-            todoItem={'FollowupConsult'}
+            todoItem={'video_consultation_followup'}
             heading={'Schedule your follow up clinician video consult'}
             route={'/videoconsultation'}
             description={' Before we proceed forward we just need you to review and sign some paperwork'}
         />
         <TodoCards
-            todoItem={'ThirdExperience'}
+            todoItem={'third_experience'}
             heading={'Schedule your third experience'}
             route={'/videoconsultation'}
             description={' Before we proceed forward we just need you to review and sign some paperwork'}
         />
         <TodoCards
-            todoItem={'FourthExperience'}
+            todoItem={'fourth_experience'}
             heading={'Schedule your fourth experience'}
             route={'/videoconsultation'}
             description={' Before we proceed forward we just need you to review and sign some paperwork'}

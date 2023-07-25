@@ -4,10 +4,14 @@ import React from "react";
 import logo from "../../../assets/svgs/chooselife.svg";
 import Image from "next/image";
 import { Button, Card, Checkbox, Form, Input } from "antd";
+import AuthService from "@/services/auth.service";
 
 const Login = () => {
-  const onFinish = (values) => {
+  const {useHandleLoginInService}=AuthService();
+  const { mutate: handleLogin, isLoading: isHandleLoginLoading } =
+      useHandleLoginInService();  const onFinish = (values) => {
     console.log("Success:", values);
+    handleLogin(values);
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -15,17 +19,17 @@ const Login = () => {
   };
   return (
     <>
-      <div className="flex justify-center items-center h-screen flex-col">
-        <Image className="border-black" src={logo} alt="Landscape picture" />
+      <div style={{marginTop:'150px'}}>
+        <Image style={{margin:'auto',width:'100%'}}  src={logo} alt="Landscape picture" />
         <Card
-          style={{ width: 500 }}
+          style={{ width: 500,margin:'auto'  }}
           className="flex justify-center items-center"
         >
           <Form
             name="basic"
             labelCol={{ span: 8 }}
             wrapperCol={{ span: 16 }}
-            style={{ maxWidth: 600 }}
+            style={{ maxWidth: 600,}}
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
@@ -36,25 +40,7 @@ const Login = () => {
               name="email"
               rules={[{ required: true, message: "Please input your email!" }]}
             >
-              <Input placeholder="Enter Your Email"/>
-            </Form.Item>
-
-            <Form.Item
-              label="Password"
-              name="password"
-              rules={[
-                { required: true, message: "Please input your password!" },
-              ]}
-            >
-              <Input.Password placeholder="Enter Your Password" />
-            </Form.Item>
-
-            <Form.Item
-              name="remember"
-              valuePropName="checked"
-              wrapperCol={{ offset: 8, span: 16 }}
-            >
-              <Checkbox>Remember me</Checkbox>
+              <Input placeholder="you@example.com"/>
             </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>

@@ -1,14 +1,11 @@
+import TodoService from "@/services/todo.service";
+
 const useTodo=(todoItem)=>{
-    const data={
-        PaperWork:false,
-        VideoConsultation:false,
-        FirstExperience:true,
-        SecondExperience:true,
-        FollowupConsult:true,
-        ThirdExperience:true,
-        FourthExperience:true,
-    }
-    const status=data[todoItem]
+
+    const {useFetchTodo}=TodoService();
+    const {data}=useFetchTodo();
+    data&&console.log(data)
+    const status=data&&data[todoItem]
     return{
        status
     }

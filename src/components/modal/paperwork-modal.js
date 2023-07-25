@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
 import {PaperworkDoc} from "@/utils/constants/paperwork-doc";
 import SignaturePad from "@/components/stateful/signature-pad";
-
+import ReactPDF, {PDFDownloadLink} from "@react-pdf/renderer";
+import PDFDoc from "@/components/pdf/paperwork-pdf";
+import {BlobProvider} from "@react-pdf/renderer";
 const PaperworkModal= () => {
     const [loading, setLoading] = useState(false);
     const [open, setOpen] = useState(false);
@@ -22,6 +24,9 @@ const PaperworkModal= () => {
     const handleCancel = () => {
         setOpen(false);
     };
+
+
+
 
     return (
         <>
@@ -47,15 +52,36 @@ const PaperworkModal= () => {
                 <SignaturePad/>
 
                 <div>
-                    <Button type="primary" style={{borderRadius:'none'}}  className="bg-primary-color button white-color" onClick={showModal}>
-                        Preview PDF
-                    </Button>
+
+                    <BlobProvider document={<PDFDoc/>}>
+                        {({ blob, url, loading, error }) => (
+                            <>
+                                {loading ? (
+                                    <Button type="primary" style={{borderRadius:'none'}} className="bg-primary-color button white-color" disabled>
+                                        Loading PDF...
+                                    </Button>
+                                ) : (
+                                    <Button
+                                        type="primary"
+                                        style={{borderRadius:'none'}}
+                                        className="bg-primary-color button white-color"
+                                        onClick={() => window.open(url, '_blank')} // Open PDF in new tab
+                                    >
+                                        Preview PDF
+                                    </Button>
+                                )}
+                            </>
+                        )}
+                    </BlobProvider>
 
                     <Button type="primary" style={{borderRadius:'none'}}  className="bg-primary-color button white-color" onClick={showModal}>
                         Submit
                     </Button>
 
+
+
                 </div>
+
             </Modal>
         </>
     );

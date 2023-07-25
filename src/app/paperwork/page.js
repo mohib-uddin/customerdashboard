@@ -5,6 +5,7 @@ import React from "react";
 import PaperworkModal from "@/components/modal/paperwork-modal";
 const Paperwork=()=>{
 
+
     return(
         <div className={'paper-card'} style={{height:'100%'}}>
             <h4>Step 1:Review And Sign Telemedicine Paperwork</h4>
@@ -26,7 +27,6 @@ const Paperwork=()=>{
                 <div className={'margin-top-1'}>
                         <a className={'primary-color'}>Remote Treatment Agreement</a>
                 </div>
-
 
             <PaperworkModal/>
         </div>
