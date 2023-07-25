@@ -1,11 +1,12 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import axiosInstance from "@/utils/config/axios-instance";
+import createAxiosInstance from "@/utils/config/axios-instance";
 
 const TodoService = () => {
-    const useFetchTodo = () => {
+    const useFetchTodo = (accessToken) => {
         function fetchTodo(){
-            return axiosInstance
+            return createAxiosInstance(accessToken)
                 .get(`/users/todos`)
                 .then((res) => res.data);
         }

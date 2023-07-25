@@ -5,6 +5,7 @@ import {Layout, Menu, Button, theme, Grid} from "antd";
 import { useRouter } from "next/navigation";
 import Navigation from "@/components/widgets/navigation";
 import Login from "@/app/auth/login/page";
+import { useSearchParams } from 'next/navigation'
 
 const {useBreakpoint}=Grid;
 const { Header, Sider, Content } = Layout;
@@ -18,10 +19,13 @@ const MainLayout = ({ children }) => {
   const screens=useBreakpoint();
 
   const user=true;
+  const searchParams = useSearchParams()
+  const accessToken = searchParams.get('accessToken')
+  sessionStorage.setItem('token',accessToken);
 
   return (
       <>
-          {user?<Layout>
+          {accessToken?<Layout>
               <Navigation collapsed={collapsed}/>
               <Layout>
                   <Header style={{ padding: 0, background: colorBgContainer }}>
